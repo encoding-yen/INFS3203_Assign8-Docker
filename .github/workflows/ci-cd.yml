@@ -33,7 +33,7 @@ jobs:
         run: |
           docker run -d -p 5000:5000 --name quiz-ai ${{ secrets.DOCKERHUB_USERNAME }}/devops-quiz-ai:latest
           sleep 5
-          curl /api/health || exit 1
+          curl http://localhost:5000/ || exit 1
           docker stop quiz-ai
 
       - name: Push to Docker Hub
